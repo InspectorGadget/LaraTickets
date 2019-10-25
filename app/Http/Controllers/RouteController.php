@@ -13,9 +13,15 @@ class RouteController extends Controller
         ]);
     }
 
-    public function showLogin() {
+    public function showUserLogin() {
         return response()->json([
-           'data' => 'Hello Login'
+           'data' => 'Hello User Login'
+        ]);
+    }
+
+    public function showAdminLogin() {
+        return response()->json([
+            'data' => 'Hello Admin Login'
         ]);
     }
 

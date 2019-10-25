@@ -15,7 +15,6 @@ class UserTableSeeder extends Seeder
         $user->username = 'admin';
         $user->email = 'root@gmail.com';
         $user->password = \Illuminate\Support\Facades\Hash::make('password');
-        $user->role = '1';
         $user->save();
     }
 }

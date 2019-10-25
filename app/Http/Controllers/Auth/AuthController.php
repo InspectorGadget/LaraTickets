@@ -8,7 +8,12 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
 
-    public function loginAsUser(Request $request)
+    public function authenticateUser(Request $request)
+    {
+        dd($request->input());
+    }
+
+    public function authenticateAdmin(Request $request)
     {
         dd($request->input());
     }
