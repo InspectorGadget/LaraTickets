@@ -18,7 +18,7 @@ class CreateAdminsTable extends Migration
             $table->string('email');
             $table->string('username');
             $table->string('password');
-            $table->integer('role')->unsigned();
+            $table->integer('role')->unsigned()->default(1); // 1 = Admin
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->nullable();
         });
