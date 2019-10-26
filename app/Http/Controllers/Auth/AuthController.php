@@ -2,24 +2,82 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Admin;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
 
     public function authenticateUser(Request $request)
     {
-        dd($request->input());
+        $validate = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Please make sure all Input boxes are filled.');
+
+        if (!(User::all()->where('email', '=', $request->input('email')))) return back()->with('error', 'User not found!');
+
+        if (!(Auth::attempt(
+            [
+                'email' => trim(strtolower($request->input('email'))),
+                'password' => trim($request->input('password'))
+            ]
+        ))) return back()->with('error', 'Invalid Credentials!');
+
+        return redirect(route('dashboard.user'));
     }
 
     public function authenticateAdmin(Request $request)
     {
-        dd($request->input());
+        $validate = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Please make sure all Input boxes are filled.');
+
+        if (!(Admin::all()->where('email', '=', $request->input('email')))) return back()->with('error', 'Admin not found!');
+
+        if (!(Auth::attempt(
+            [
+                'email' => trim(strtolower($request->input('email'))),
+                'password' => trim($request->input('password'))
+            ]
+        ))) return back()->with('error', 'Invalid Credentials!');
+
+        return redirect(route('dashboard.admin'));
     }
 
     public function registerUser(Request $request)
     {
-        dd($request->input());
+        $validate = $request->validate([
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (!$validate) return back()->with('error', 'Please make sure all Input boxes are filled.');
+
+        if (
+            count(User::all()->where('email', '=', strtolower($request->input('email')))) > 0
+            ||
+            count(User::all()->where('username', '=', strtolower($request->input('username')))) > 0
+        ) return back()->with('error', 'User exists!');
+
+        $user = new User();
+        $user->email = trim(strtolower($request->input('email')));
+        $user->username = strtolower($request->input('username'));
+        $user->password = Hash::make(trim($request->input('password')));
+        $user->save();
+
+        return !$user
+            ? back()->with('error', 'Unable to sign you up!')
+            : redirect(route('user.login'))->with('message', 'Please login with your new account to validate your account');
     }
 }

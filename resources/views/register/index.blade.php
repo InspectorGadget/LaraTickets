@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-label-group">
-                            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password"  required>
                             <label for="inputPassword">Password</label>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
