@@ -11,7 +11,7 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = new \App\Admin;
+        $admin = new \App\Admin();
         $admin->username = 'admin';
         $admin->email = 'root@gmail.com';
         $admin->password = \Illuminate\Support\Facades\Hash::make('password');

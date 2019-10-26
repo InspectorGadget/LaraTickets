@@ -11,7 +11,7 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $role = new \App\Role;
+        $role = new \App\Role();
         $role->name = 'Admin';
         $role->save();
 

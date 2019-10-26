@@ -11,7 +11,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new \App\User;
+        $user = new \App\User();
         $user->username = 'user';
         $user->email = 'root@gmail.com';
         $user->password = \Illuminate\Support\Facades\Hash::make('password');
