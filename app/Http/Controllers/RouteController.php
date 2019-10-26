@@ -12,15 +12,24 @@ class RouteController extends Controller
     }
 
     public function showUserLogin() {
-        return response()->json([
-           'data' => 'Hello User Login'
-        ]);
+        return view('login.index');
+    }
+
+    public function showUserRegister() {
+        return view('register.index');
     }
 
     public function showAdminLogin() {
-        return response()->json([
-            'data' => 'Hello Admin Login'
-        ]);
+        return view('login.admin');
+    }
+
+    public function showMyTickets() {
+        return view('user.index');
+    }
+
+    public function showAdminDashboard()
+    {
+        return view('admin.index');
     }
 
 }

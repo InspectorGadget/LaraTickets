@@ -17,4 +17,9 @@ class AuthController extends Controller
     {
         dd($request->input());
     }
+
+    public function registerUser(Request $request)
+    {
+        dd($request->input());
+    }
 }
