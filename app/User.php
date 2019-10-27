@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'updated_at'
+        'username', 'email', 'role', 'password', 'updated_at'
     ];
 
     /**
@@ -32,8 +32,12 @@ class User extends Authenticatable
         'created_at' => 'datetime'
     ];
 
-    public function role() {
+    public function getRole() {
         return $this->hasOne(Role::class, 'id', 'role');
+    }
+
+    public function isAdmin(): bool {
+        return $this->role > 1 ? true : false;
     }
 
 }

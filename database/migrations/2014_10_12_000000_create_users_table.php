@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('username');
             $table->string('password');
+            $table->integer('role')->unsigned()->default(1);
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->nullable();
         });

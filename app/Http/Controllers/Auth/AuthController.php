@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
-    public function authenticateUser(Request $request)
+    public function login(Request $request)
     {
         $validate = $request->validate([
             'email' => 'required',
@@ -30,28 +30,11 @@ class AuthController extends Controller
             ]
         ))) return back()->with('error', 'Invalid Credentials!');
 
-        return redirect(route('dashboard.user'));
-    }
-
-    public function authenticateAdmin(Request $request)
-    {
-        $validate = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
-        if (!$validate) return back()->with('error', 'Please make sure all Input boxes are filled.');
-
-        if (!(Admin::all()->where('email', '=', $request->input('email')))) return back()->with('error', 'Admin not found!');
-
-        if (!(Auth::attempt(
-            [
-                'email' => trim(strtolower($request->input('email'))),
-                'password' => trim($request->input('password'))
-            ]
-        ))) return back()->with('error', 'Invalid Credentials!');
-
-        return redirect(route('dashboard.admin'));
+        if (Auth::user()->isAdmin()) {
+            return redirect(route('dashboard.admin'));
+        } else {
+            return redirect(route('dashboard.user'));
+        }
     }
 
     public function registerUser(Request $request)

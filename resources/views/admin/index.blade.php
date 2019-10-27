@@ -54,7 +54,7 @@
                         <h4 class="header-title mb-0">Admin (Total)</h4>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <h2>{{ count(\App\Admin::all()) }}</h2>
+                        <h2>{{ count(\App\User::all()->where('role', '>', '1')) }}</h2>
                     </div>
                 </div>
             </div>
