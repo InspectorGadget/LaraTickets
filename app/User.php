@@ -40,4 +40,8 @@ class User extends Authenticatable
         return $this->role > 1 ? true : false;
     }
 
+    public function tickets() {
+        return $this->hasMany(Ticket::class, 'email', 'email');
+    }
+
 }

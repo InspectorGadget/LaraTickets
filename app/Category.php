@@ -11,6 +11,8 @@ class Category extends Model
         'name'
     ];
 
+    protected $primaryKey = 'id';
+
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime'

@@ -8,11 +8,11 @@ class Ticket extends Model
 {
 
     protected $fillable = [
-      'email', 'category_id', 'title', 'priority', 'message', 'status'
+      'email', 'category_id', 'title', 'message', 'status'
     ];
 
     public function category() {
-        $this->belongsTo(Category::class);
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
 }

@@ -14,6 +14,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'isUser'], function() {
         Route::get('/my-tickets', ['as' => 'dashboard.user', 'uses' => 'RouteController@showMyTickets']);
         Route::get('/new', ['as' => 'dashboard.user.new', 'uses' => 'RouteController@showNewTicketForm']);
+        Route::post('/new', ['as' => 'dashboard.user.new', 'uses' => 'Ticket\TicketController@create']);
     });
 
     Route::group(['middleware' => 'isAdmin'], function() {

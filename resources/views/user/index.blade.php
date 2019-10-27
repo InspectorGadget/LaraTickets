@@ -13,20 +13,18 @@
             <th>Category</th>
             <th>Title</th>
             <th>Status</th>
-            <th>Priority</th>
-            <th>Created at</th>
+            <th>Created</th>
         </tr>
         </thead>
         <tbody>
-        @if (count(\App\Ticket::all()->where('email', '=', auth()->user()->email)) > 0)
-            @foreach (\App\Ticket::all()->where('email', '=', auth()->user()->email) as $ticket)
-                <tr>
+        @if (count(auth()->user()->tickets) > 0)
+            @foreach (auth()->user()->tickets as $ticket)
+                <tr class="table-item">
                     <td>{{ $ticket->id }}</td>
                     <td>{{ $ticket->category->name }}</td>
                     <td>{{ $ticket->title }}</td>
                     <td>Open</td>
-                    <td>{{ $ticket->priority }}</td>
-                    <td>{{ $ticket->created_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse($ticket->created_at)->diffForHumans() }}</td>
                 </tr>
             @endforeach
         @else

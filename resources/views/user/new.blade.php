@@ -6,12 +6,14 @@
     <div class="grid">
         <div class="row">
             <div class="col-lg-12">
-                <form class="form-group">
+                <form class="form-group" method="POST" action="{{ route('dashboard.user.new') }}">
+                    {{ csrf_field() }}
+
                     <label for="select">Category:</label>
                     <select class="form-control" name="category" id="select" required>
                         <option value="">Please select</option>
                         @foreach (\App\Category::all() as $category)
-                            <option value="{{ $category->name }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
 

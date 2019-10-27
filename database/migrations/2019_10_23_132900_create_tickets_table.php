@@ -18,7 +18,6 @@ class CreateTicketsTable extends Migration
             $table->string('email');
             $table->integer('category_id')->unsigned();
             $table->string('title');
-            $table->string('priority');
             $table->text('message');
             $table->string('status');
             $table->timestamps();

@@ -18,3 +18,11 @@ a {
     color: blue !important;
     text-decoration: underline !important;
 }
+
+.table-item:nth-child(even) {
+    background: #dddddd;
+}
+
+.table-item:hover {
+    background: #dddddd;
+}
