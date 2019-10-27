@@ -27,6 +27,10 @@ class RouteController extends Controller
         return view('user.index');
     }
 
+    public function showNewTicketForm() {
+        return view('user.new');
+    }
+
     public function showAdminDashboard()
     {
         return view('admin.index');

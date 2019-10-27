@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class isGuest
+class isUser
 {
     /**
      * Handle an incoming request.

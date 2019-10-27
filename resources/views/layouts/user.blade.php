@@ -46,6 +46,10 @@
                 <a href="{{ route('dashboard.user') }}">Home</a>
             </li>
 
+            <li class="{{ Request::routeIs('dashboard.user.new') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.user.new') }}">New Ticket</a>
+            </li>
+
             {{--            <li>--}}
             {{--                <a href="{{ route('logout') }}">Logout</a>--}}
             {{--            </li>--}}
@@ -69,6 +73,10 @@
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item {{ Request::routeIs('dashboard.user') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('dashboard.user') }}">Home</a>
+                        </li>
+
+                        <li class="nav-item {{ Request::routeIs('dashboard.user.new') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('dashboard.user.new') }}">New Ticket</a>
                         </li>
                     </ul>
                 </div>
