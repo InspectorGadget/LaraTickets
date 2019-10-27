@@ -39,7 +39,7 @@
                             <label for="inputPassword">Password</label>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                        <a class="btn btn-lg btn-success btn-block text-uppercase" href="{{ route('user.login') }}">Login</a>
+                        <a class="btn btn-lg btn-success btn-block text-uppercase" href="{{ route('login') }}">Login</a>
                     </form>
                 </div>
             </div>

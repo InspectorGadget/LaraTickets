@@ -3,6 +3,9 @@
 @section('title', 'My Tickets')
 
 @section('content')
+    <h3>Your Tickets</h3>
+    <hr />
+
     <table class="table">
         <thead class="thead-dark">
         <tr>

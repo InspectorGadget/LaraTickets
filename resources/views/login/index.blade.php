@@ -21,7 +21,7 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">User Sign-in</h5>
-                    <form class="form-signin" method="POST" action="{{ route('user.login') }}">
+                    <form class="form-signin" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-label-group">

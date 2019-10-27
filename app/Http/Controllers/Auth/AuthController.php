@@ -61,6 +61,6 @@ class AuthController extends Controller
 
         return !$user
             ? back()->with('error', 'Unable to sign you up!')
-            : redirect(route('user.login'))->with('message', 'Please login with your new account to validate your account');
+            : redirect(route('login'))->with('message', 'Please login with your new account to validate your account');
     }
 }
