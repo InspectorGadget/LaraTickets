@@ -9,10 +9,15 @@ Route::get('/register', ['as' => 'user.register', 'uses' => 'RouteController@sho
 Route::post('/register', ['as' => 'user.register', 'uses' => 'Auth\AuthController@registerUser']);
 // -----------
 
-// [Member]
-Route::get('/my-tickets', ['as' => 'dashboard.user', 'uses' => 'RouteController@showMyTickets']);
-// -----------
+Route::group(['middleware' => 'isGuest'], function() {
+    // [Member]
+    Route::get('/my-tickets', ['as' => 'dashboard.user', 'uses' => 'RouteController@showMyTickets']);
+    // -----------
+});
 
-// [Admin]
-Route::get('/dashboard', ['as' => 'dashboard.admin', 'uses' => 'RouteController@showAdminDashboard']);
-// -----------
+Route::group(['middleware' => 'isAdmin'], function() {
+    // [Admin]
+    Route::get('/dashboard', ['as' => 'dashboard.admin', 'uses' => 'RouteController@showAdminDashboard']);
+    // -----------
+});
+
