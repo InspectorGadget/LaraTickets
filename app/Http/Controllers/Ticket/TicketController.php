@@ -27,7 +27,7 @@ class TicketController extends Controller
         $ticket->save();
 
         return $ticket
-            ? back()->with('message', 'Ticket created!')
+            ? redirect(route('dashboard.user'))->with('message', 'Ticket created!')
             : back()->with('error', 'Unable to create Ticket');
     }
 
