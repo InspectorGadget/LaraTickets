@@ -29,7 +29,7 @@ class RouteController extends Controller
         return view('user.index');
     }
 
-    public function viewTicket(int $id) {
+    public function viewTicket($id) {
         $data = Ticket::all()->find($id);
         if (!$data) return redirect(route('dashboard.user'))->with('error', 'Ticket not found');
         if ($data->email !== auth()->user()->email) return redirect(route('dashboard.user'))->with('error', 'No permission to view this Ticket');

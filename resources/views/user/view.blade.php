@@ -3,5 +3,5 @@
 @section('title', 'View Ticket')
 
 @section('content')
-    
+
 @stop
