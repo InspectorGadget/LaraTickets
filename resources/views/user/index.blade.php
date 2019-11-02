@@ -14,6 +14,7 @@
             <th>Title</th>
             <th>Status</th>
             <th>Created</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -25,10 +26,12 @@
                     <td>{{ $ticket->title }}</td>
                     <td>Open</td>
                     <td>{{ \Carbon\Carbon::parse($ticket->created_at)->diffForHumans() }}</td>
+                    <td><a href="{{ route('dashboard.user.ticket', ['id' => $ticket->id]) }}" class="btn btn-primary">View</a></td>
                 </tr>
             @endforeach
         @else
             <tr>
+                <td>No Data</td>
                 <td>No Data</td>
                 <td>No Data</td>
                 <td>No Data</td>

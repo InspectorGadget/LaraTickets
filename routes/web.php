@@ -13,6 +13,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::group(['middleware' => 'isUser'], function() {
         Route::get('/my-tickets', ['as' => 'dashboard.user', 'uses' => 'RouteController@showMyTickets']);
+        Route::get('/my-tickets/{id}/view', ['as' => 'dashboard.user.ticket', 'uses' => 'RouteController@viewTicket']);
+
         Route::get('/new', ['as' => 'dashboard.user.new', 'uses' => 'RouteController@showNewTicketForm']);
         Route::post('/new', ['as' => 'dashboard.user.new', 'uses' => 'Ticket\TicketController@create']);
     });
