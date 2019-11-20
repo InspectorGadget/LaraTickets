@@ -67,6 +67,7 @@
                 <th>Category</th>
                 <th>Title</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -76,9 +77,20 @@
                         <td>{{ $ticket->id }}</td>
                         <td>{{ $ticket->category->name }}</td>
                         <td>{{ $ticket->email }}</td>
-                        <td>{{ $ticket->status === '1' ? 'Open' : 'Closed' }}</td>
+                        <td>{{ $ticket->status }}</td>
+                        <td>
+                            <button class="btn btn-primary">View</button>
+                        </td>
                     </tr>
                 @endforeach
+            @else
+                <tr>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                </tr>
             @endif
             </tbody>
         </table>
