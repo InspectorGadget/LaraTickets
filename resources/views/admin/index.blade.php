@@ -59,5 +59,28 @@
                 </div>
             </div>
         </div>
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (count(\App\Ticket::all()) > 0)
+                @foreach (\App\Ticket::all() as $ticket)
+                    <tr>
+                        <td>{{ $ticket->id }}</td>
+                        <td>{{ $ticket->category->name }}</td>
+                        <td>{{ $ticket->email }}</td>
+                        <td>{{ $ticket->status === '1' ? 'Open' : 'Closed' }}</td>
+                    </tr>
+                @endforeach
+            @endif
+            </tbody>
+        </table>
     </div>
 @stop
