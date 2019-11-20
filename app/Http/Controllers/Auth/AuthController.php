@@ -63,4 +63,13 @@ class AuthController extends Controller
             ? back()->with('error', 'Unable to sign you up!')
             : redirect(route('login'))->with('message', 'Please login with your new account to validate your account');
     }
+
+    public function logout() {
+        if (!\auth()->check()) {
+            return redirect(route('login'));
+        }
+
+        \auth()->logout();
+        return redirect()->intended(route('login'));
+    }
 }

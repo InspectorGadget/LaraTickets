@@ -11,6 +11,8 @@ Route::post('/register', ['as' => 'user.register', 'uses' => 'Auth\AuthControlle
 
 Route::group(['middleware' => 'auth'], function() {
 
+    Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
+
     Route::group(['middleware' => 'isUser'], function() {
         Route::get('/my-tickets', ['as' => 'dashboard.user', 'uses' => 'RouteController@showMyTickets']);
         Route::get('/my-tickets/{id}/view', ['as' => 'dashboard.user.ticket', 'uses' => 'RouteController@viewTicket']);

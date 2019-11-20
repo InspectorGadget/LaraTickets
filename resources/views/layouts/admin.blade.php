@@ -46,9 +46,9 @@
                 <a href="{{ route('dashboard.admin') }}">Home</a>
             </li>
 
-{{--            <li>--}}
-{{--                <a href="{{ route('logout') }}">Logout</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('logout') }}">Logout</a>
+            </li>
         </ul>
     </nav>
 

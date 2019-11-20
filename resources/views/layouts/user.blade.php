@@ -50,9 +50,9 @@
                 <a href="{{ route('dashboard.user.new') }}">New Ticket</a>
             </li>
 
-            {{--            <li>--}}
-            {{--                <a href="{{ route('logout') }}">Logout</a>--}}
-            {{--            </li>--}}
+            <li>
+                <a href="{{ route('logout') }}">Logout</a>
+            </li>
         </ul>
     </nav>
 
